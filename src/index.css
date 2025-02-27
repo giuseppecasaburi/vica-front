@@ -1,0 +1,63 @@
+/*------------------------- ANIMATION HERO TEXT -------------------------*/
+@keyframes slideFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-200px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideFromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(200px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-title {
+    opacity: 0;
+    animation: slideFromTop 1.5s ease-out forwards;
+}
+
+.animate-text {
+    opacity: 0;
+    animation: slideFromBottom 1.5s ease-out forwards;
+    animation-delay: 0.5s;
+}
+/*------------------------- ANIMATION HERO TEXT -------------------------*/
+
+
+/* -------------------------- CTA STYLE -------------------------------- */
+.cta-container {
+    position: absolute;
+    bottom: -20px; /* la distanza dal bordo inferiore dell'hero */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+  }
+  
+  .cta {
+    background-color: #FF5733;
+    padding: 10px 20px;
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .cta:first-child {
+    margin-left: -50px; /* Metà fuori dalla sezione */
+  }
+  
+  .cta:last-child {
+    margin-right: -50px; /* Metà fuori dalla sezione */
+  }
+/* -------------------------- CTA STYLE -------------------------------- */
