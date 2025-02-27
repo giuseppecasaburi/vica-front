@@ -1,3 +1,27 @@
+/*-------------------------------- RESET ---------------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+li {
+    list-style: none;
+}
+/*-------------------------------- RESET ---------------------------------*/
+
+
+/*------------------------------- LAYOUT --------------------------------*/
+
 /*------------------------- ANIMATION HERO TEXT -------------------------*/
 @keyframes slideFromTop {
     from {
@@ -29,7 +53,7 @@
 .animate-text {
     opacity: 0;
     animation: slideFromBottom 1.5s ease-out forwards;
-    animation-delay: 0.5s;
+    animation-delay: 0.3s;
 }
 /*------------------------- ANIMATION HERO TEXT -------------------------*/
 
@@ -45,7 +69,6 @@
   }
   
   .cta {
-    background-color: #FF5733;
     padding: 10px 20px;
     margin: 0 10px;
     color: white;
@@ -61,3 +84,10 @@
     margin-right: -50px; /* Metà fuori dalla sezione */
   }
 /* -------------------------- CTA STYLE -------------------------------- */
+
+#logo {
+    height: 100px;
+}
+
+
+/*------------------------------- LAYOUT --------------------------------*/
