@@ -1,0 +1,132 @@
+/*---------------------------- FONT & COLOR ------------------------------*/
+/* Titoli e intestazioni → Playfair Display (Elegante, serif) 
+Testo paragrafo → Poppins o Lato (Sans-serif, leggibile e moderno) 
+Pulsanti e call-to-action → Montserrat (Sans-serif, leggermente bold per maggiore impatto)  */
+:root {
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Poppins', sans-serif;
+    --font-button: 'Montserrat', sans-serif;
+}
+
+:root {
+    --color-background: #F8F9FA; /*BIANCO SPORCO*/
+    --color-secondary-bg: #EAEDED; /*GRIGIO CHIARO*/
+    --color-primary: #2C3E50; /*BLU PETROLIO*/
+    --color-secondary: #A3B899; /*VERDE SALVIA*/
+    --color-text: #333333; /*ANTRACITE*/
+    --color-text-secondary: #666666; /*GRIGIO MEDIO*/
+    --color-button: #34495E; /*BLU NAVY*/
+    --color-button-hover: #C4A35A; /*ORO SATINATO*/
+    --color-border: #444444; /*GRIGIO SCURO*/
+}
+/*---------------------------- FONT & COLOR ------------------------------*/
+
+/* ---- Hero Section ---- */
+.hero {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .hero img {
+    width: 100%;
+    object-fit: cover;
+    height: 500px;
+  }
+
+  .hero-content {
+    width: 70%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+  }
+  
+  .hero h1 {
+    color: var(--color-button-hover);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    font-family: 'Playfair Display', serif;
+    margin: 20px 0;
+  }
+  
+  .hero p {
+    color: var(--color-secondary);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2em;
+    
+  }
+
+.hero-buttons .btn {
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17px;
+    border: none;
+  }
+  
+  .btn-color-p, .btn-color-s {
+    background-color: var(--color-button);
+    color: white;
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Aggiungi la transizione per il zoom */
+    transform-origin: center; /* Mantieni il centro fisso durante lo zoom */
+  }
+  
+  .btn-color-p:hover {
+    background-color: var(--color-button-hover);
+  }
+  
+  .btn-color-s:hover {
+    background-color: var(--color-secondary);
+  }
+  
+  .btn-color-p:hover, .btn-color-s:hover {
+    transform: scale(1.1); /* Zoom del 10% */
+  }
+
+
+/* ANIMAZIONE SCRITTE */
+@keyframes slideFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideFromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-title {
+    opacity: 0;
+    animation: slideFromTop 1.5s ease-out forwards;
+}
+
+.animate-text {
+    opacity: 0;
+    animation: slideFromBottom 1.5s ease-out forwards;
+    animation-delay: 0.3s;
+}

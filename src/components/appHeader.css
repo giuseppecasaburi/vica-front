@@ -1,0 +1,72 @@
+/*---------------------------- FONT & COLOR ------------------------------*/
+/* Titoli e intestazioni → Playfair Display (Elegante, serif) 
+Testo paragrafo → Poppins o Lato (Sans-serif, leggibile e moderno) 
+Pulsanti e call-to-action → Montserrat (Sans-serif, leggermente bold per maggiore impatto)  */
+:root {
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Poppins', sans-serif;
+    --font-button: 'Montserrat', sans-serif;
+}
+
+:root {
+    --color-background: #F8F9FA; /*BIANCO SPORCO*/
+    --color-secondary-bg: #EAEDED; /*GRIGIO CHIARO*/
+    --color-primary: #2C3E50; /*BLU PETROLIO*/
+    --color-secondary: #A3B899; /*VERDE SALVIA*/
+    --color-text: #333333; /*ANTRACITE*/
+    --color-text-secondary: #666666; /*GRIGIO MEDIO*/
+    --color-button: #34495E; /*BLU NAVY*/
+    --color-button-hover: #C4A35A; /*ORO SATINATO*/
+    --color-border: #444444; /*GRIGIO SCURO*/
+}
+/*---------------------------- FONT & COLOR ------------------------------*/
+
+/* Posizionamento relativo per poter posizionare il dropdown assolutamente */
+nav ul li.nav-item {
+    position: relative;
+  }
+  
+  /* Dropdown inizialmente nascosto e animato */
+  .dropdown {
+    position: absolute;
+    top: 100%; /* Appena sotto il navLink */
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+    
+    /* Stato iniziale nascosto con transizione */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+  }
+  
+  /* Mostra il dropdown sia al passaggio del mouse sia al focus (accessibilità tastiera) */
+  nav ul li.nav-item:hover .dropdown,
+  nav ul li.nav-item:focus-within .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  /* Stili per gli elementi del dropdown */
+  .dropdown li {
+    padding: 8px 16px;
+    white-space: nowrap;
+  }
+  
+  .dropdown li a {
+    color: #333;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Effetto hover per gli elementi del dropdown */
+  .drop-item:hover {
+    color: var(--color-button-hover);
+  }
+  

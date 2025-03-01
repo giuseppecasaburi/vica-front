@@ -1,93 +1,141 @@
+/*---------------------------- FONT & COLOR ------------------------------*/
+/* Titoli e intestazioni → Playfair Display (Elegante, serif) 
+Testo paragrafo → Poppins o Lato (Sans-serif, leggibile e moderno) 
+Pulsanti e call-to-action → Montserrat (Sans-serif, leggermente bold per maggiore impatto)  */
+:root {
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Poppins', sans-serif;
+    --font-button: 'Montserrat', sans-serif;
+}
+
+
+/* Sfondo chiaro con testi scuri per leggibilità
+Accenti di blu petrolio e verde salvia per un look sofisticato
+Bottoni con colori contrastanti per attirare l’attenzione (blu navy con hover oro satinato)
+Bordi e dettagli in grigio scuro per definire gli elementi senza appesantire il design */
+:root {
+    --color-background: #F8F9FA; /*BIANCO SPORCO*/
+    --color-secondary-bg: #EAEDED; /*GRIGIO CHIARO*/
+    --color-primary: #2C3E50; /*BLU PETROLIO*/
+    --color-secondary: #A3B899; /*VERDE SALVIA*/
+    --color-text: #333333; /*ANTRACITE*/
+    --color-text-secondary: #666666; /*GRIGIO MEDIO*/
+    --color-button: #34495E; /*BLU NAVY*/
+    --color-button-hover: #C4A35A; /*ORO SATINATO*/
+    --color-border: #444444; /*GRIGIO SCURO*/
+}
+
 /*-------------------------------- RESET ---------------------------------*/
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 img {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 a {
-    text-decoration: none;
-    color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 
 li {
-    list-style: none;
+  list-style: none;
 }
+
 /*-------------------------------- RESET ---------------------------------*/
 
 
-/*------------------------------- LAYOUT --------------------------------*/
-
-/*------------------------- ANIMATION HERO TEXT -------------------------*/
-@keyframes slideFromTop {
-    from {
-        opacity: 0;
-        transform: translateY(-200px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* ---- Header ---- */
+header {
+    background-color: var(--color-secondary-bg);
+    padding-top: 20px;
+}
+  
+  /* Logo e barra di ricerca */
+  #top-bar {
+    width: 85%;
+    margin: 0 auto;
+}
+  
+  #logo {
+    height: 70px;
+    padding-bottom: 5px;
 }
 
-@keyframes slideFromBottom {
-    from {
-        opacity: 0;
-        transform: translateY(200px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.animate-title {
-    opacity: 0;
-    animation: slideFromTop 1.5s ease-out forwards;
-}
-
-.animate-text {
-    opacity: 0;
-    animation: slideFromBottom 1.5s ease-out forwards;
-    animation-delay: 0.3s;
-}
-/*------------------------- ANIMATION HERO TEXT -------------------------*/
-
-
-/* -------------------------- CTA STYLE -------------------------------- */
-.cta-container {
-    position: absolute;
-    bottom: -20px; /* la distanza dal bordo inferiore dell'hero */
-    left: 50%;
-    transform: translateX(-50%);
+#image-search {
     display: flex;
-    justify-content: center;
-  }
-  
-  .cta {
-    padding: 10px 20px;
-    margin: 0 10px;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-  }
-  
-  .cta:first-child {
-    margin-left: -50px; /* Metà fuori dalla sezione */
-  }
-  
-  .cta:last-child {
-    margin-right: -50px; /* Metà fuori dalla sezione */
-  }
-/* -------------------------- CTA STYLE -------------------------------- */
-
-#logo {
-    height: 100px;
+    justify-content: space-between;
+    align-items: center;
 }
 
+#image {
+    width: 30%;
+}
+  
+  .search-bar {
+    display: flex;
+    width: 70%;
+    gap: 10px;
+}
+  
+  .search-bar input {
+    width: 80%;
+    padding: 8px;
+    border: 1px solid var(--color-border);
+    border-radius: 20px;
+}
+  
+  .search-bar button {
+    width: 20%;
+    background-color: var(--color-button);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 17px;
+}
+  
+  .search-bar button:hover {
+    background-color: var(--color-button-hover);
+}
 
-/*------------------------------- LAYOUT --------------------------------*/
+.custom-hr {
+    border: none;
+    height: 2px;
+    background-color: #34495E;
+}
+  
+  /* ---- Navbar ---- */
+  nav {
+    background-color: var(--color-secondary-bg);
+    padding: 10px 0;
+    text-align: center;
+}
+  
+  nav ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+}
+  
+  nav ul li {
+    display: inline-block;
+    margin: 0 15px;
+  }
+  
+  .rea-nav-link {
+    color: var(--color-text);
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  
+  .rea-nav-link:hover {
+    color: var(--color-button-hover);
+  }
