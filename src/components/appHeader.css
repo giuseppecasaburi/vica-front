@@ -3,70 +3,164 @@
 Testo paragrafo → Poppins o Lato (Sans-serif, leggibile e moderno) 
 Pulsanti e call-to-action → Montserrat (Sans-serif, leggermente bold per maggiore impatto)  */
 :root {
-    --font-heading: 'Playfair Display', serif;
-    --font-body: 'Poppins', sans-serif;
-    --font-button: 'Montserrat', sans-serif;
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Poppins', sans-serif;
+  --font-button: 'Montserrat', sans-serif;
 }
 
 :root {
-    --color-background: #F8F9FA; /*BIANCO SPORCO*/
-    --color-secondary-bg: #EAEDED; /*GRIGIO CHIARO*/
-    --color-primary: #2C3E50; /*BLU PETROLIO*/
-    --color-secondary: #A3B899; /*VERDE SALVIA*/
-    --color-text: #333333; /*ANTRACITE*/
-    --color-text-secondary: #666666; /*GRIGIO MEDIO*/
-    --color-button: #34495E; /*BLU NAVY*/
-    --color-button-hover: #C4A35A; /*ORO SATINATO*/
-    --color-border: #444444; /*GRIGIO SCURO*/
+  --color-background: #F8F9FA;
+  /*BIANCO SPORCO*/
+  --color-secondary-bg: #EAEDED;
+  /*GRIGIO CHIARO*/
+  --color-primary: #2C3E50;
+  /*BLU PETROLIO*/
+  --color-secondary: #A3B899;
+  /*VERDE SALVIA*/
+  --color-text: #333333;
+  /*ANTRACITE*/
+  --color-text-secondary: #666666;
+  /*GRIGIO MEDIO*/
+  --color-button: #34495E;
+  /*BLU NAVY*/
+  --color-button-hover: #C4A35A;
+  /*ORO SATINATO*/
+  --color-border: #444444;
+  /*GRIGIO SCURO*/
 }
+
 /*---------------------------- FONT & COLOR ------------------------------*/
+
+/* ---- Navbar ---- */
+nav {
+  background-color: var(--color-secondary-bg);
+  padding: 10px 0;
+  text-align: center;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  margin: 0 15px;
+}
 
 /* Posizionamento relativo per poter posizionare il dropdown assolutamente */
 nav ul li.nav-item {
-    position: relative;
-  }
-  
-  /* Dropdown inizialmente nascosto e animato */
-  .dropdown {
-    position: absolute;
-    top: 100%; /* Appena sotto il navLink */
-    left: 0;
-    background-color: #fff;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    z-index: 1000;
-    
-    /* Stato iniziale nascosto con transizione */
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
-  }
-  
-  /* Mostra il dropdown sia al passaggio del mouse sia al focus (accessibilità tastiera) */
-  nav ul li.nav-item:hover .dropdown,
-  nav ul li.nav-item:focus-within .dropdown {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-  
-  /* Stili per gli elementi del dropdown */
-  .dropdown li {
-    padding: 8px 16px;
-    white-space: nowrap;
-  }
-  
-  .dropdown li a {
-    color: #333;
-    text-decoration: none;
-    display: block;
-  }
-  
-  /* Effetto hover per gli elementi del dropdown */
-  .drop-item:hover {
-    color: var(--color-button-hover);
-  }
-  
+  position: relative;
+}
+
+/* NAV-DROPDOWN */
+/* Container principale della nav */
+#container-nav {
+  position: relative;
+  z-index: 1000;
+}
+
+/* Lista principale della navbar */
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+/* Elementi della lista */
+.nav-item {
+  position: relative;
+  margin-right: 20px;
+  color: var(--color-text);
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* Link della navbar */
+.nav-link {
+  text-decoration: none;
+  color: #000;
+  padding: 10px;
+  display: block;
+  position: relative;
+  text-decoration: none; /* Rimuove sottolineatura predefinita */
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--color-button-hover);
+}
+
+/* Dropdown: si posiziona in modo assoluto rispetto al nav-item e usa il flex per le colonne */
+.dropdown-menu {
+  max-width: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: flex;
+  /* Le colonne saranno affiancate */
+  background: var(--color-secondary-bg);
+  border: 1px solid #ccc;
+  padding: 10px;
+  gap: 20px;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
+  z-index: 2000;
+  /* Deve comparire sopra altri elementi (es. l'hero) */
+}
+
+/* Effetto hover per gli elementi del dropdown */
+.nav-link:hover {
+  color: var(--color-button-hover);
+}
+
+/* Mostra il dropdown quando si passa con il mouse sul nav-item */
+.nav-item:hover .dropdown-menu {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Ogni colonna del dropdown */
+.dropdown-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header della collezione (nome in cima alla colonna) */
+.dropdown-header {
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+  margin-bottom: 8px;
+}
+
+/* Lista verticale dei modelli */
+.dropdown-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  /* Forza la disposizione verticale */
+}
+
+/* Elementi della lista dei modelli */
+.dropdown-item {
+  text-decoration: none;
+  color: #555;
+  padding: 8px 0;
+}
+
+.dropdown-item:hover,
+.dropdown-header:hover {
+  color: var(--color-button-hover);
+  background-color: var(--color-secondary-bg);
+}

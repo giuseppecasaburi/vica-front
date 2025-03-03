@@ -30,6 +30,7 @@ Bordi e dettagli in grigio scuro per definire gli elementi senza appesantire il 
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  max-width: 100%;
 }
 
 img {
@@ -109,33 +110,4 @@ header {
     background-color: #34495E;
 }
   
-  /* ---- Navbar ---- */
-  nav {
-    background-color: var(--color-secondary-bg);
-    padding: 10px 0;
-    text-align: center;
-}
-  
-  nav ul {
-    display: flex;
-    justify-content: space-between;
-    list-style: none;
-    padding: 0;
-}
-  
-  nav ul li {
-    display: inline-block;
-    margin: 0 15px;
-  }
-  
-  .rea-nav-link {
-    color: var(--color-text);
-    text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-    font-size: 20px;
-  }
-  
-  .rea-nav-link:hover {
-    color: var(--color-button-hover);
-  }
+

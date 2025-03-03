@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import "./heroSection.css"
 
 function HeroSection() {
@@ -18,8 +19,16 @@ function HeroSection() {
                         Scopri la nostra selezione di arredi bagno eleganti e funzionali. <br />Dai lavabo moderni alle docce di lusso, ogni dettaglio è pensato per offrirti comfort e stile.
                     </p>
                     <div className="hero-buttons mt-5 animate-text">
-                        <button className="btn btn-color-p m-2 cta pulsanti-primari">Esplora la nostra collezione</button>
-                        <button className="btn btn-color-s m-2 cta colore-secondario">Richiedi un preventivo gratuito</button>
+                        <button className="btn btn-color-p m-2 cta pulsanti-primari">
+                            <NavLink to={"/collezioni"}>
+                                Esplora la nostra collezione
+                            </NavLink>
+                        </button>
+                        <button className="btn btn-color-s m-2 cta colore-secondario">
+                            <NavLink to={"/contatti"}>
+                                Richiedi un preventivo gratuito
+                            </NavLink>
+                        </button>
                     </div>
                 </div>
             </div>

@@ -1,27 +1,47 @@
 import { NavLink } from "react-router-dom";
 import "./appHeader.css"
+import axios from "axios";
+import { useEffect, useState } from "react";
+
+const apiUrl = import.meta.env.VITE_NODE_ENV === "development" ? import.meta.env.VITE_API_URL_DEV : import.meta.env.VITE_API_URL_PROD
 
 function AppHeader() {
+    const [collection, setCollection] = useState([]);
+
+    useEffect(() => {
+        const getCollection = () => {
+            axios.get(`${apiUrl}/collezioni/navigate`).then((resp) => {
+                const collectionModels = resp.data.data
+                setCollection(collectionModels);
+            })
+                .catch((error) => {
+                    console.log(error)
+                })
+        }
+        getCollection()
+    }, [])
+
+
+
     const navLinks = [
         {
             icon: <i className="fa-solid fa-house"></i>,
             path: "/",
             title: "Home page",
-            secondIcon: <i className="fa-solid fa-angle-down"></i>,
-            dropdown: [
-                { title: "Opzione 1", path: "/opzione1" },
-                { title: "Opzione 2", path: "/opzione2" }
-            ]
         },
         {
             icon: <i className="fa-solid fa-sink"></i>,
             path: "/collezioni",
             title: "Collezioni",
             secondIcon: <i className="fa-solid fa-angle-down"></i>,
-            dropdown: [
-                { title: "Sub Collezione 1", path: "/collezioni/sub1" },
-                { title: "Sub Collezione 2", path: "/collezioni/sub2" }
-            ]
+            dropdown: collection.map((curCollect) => ({
+                path: "/collezioni/navigate",
+                title: curCollect.nome_collezione,
+                subDropdown: curCollect.modelli.map((curModel) => ({
+                    path: "/example",
+                    title: curModel.nome_modello
+                })),
+            })),
         },
         {
             icon: <i className="fa-solid fa-bath"></i>,
@@ -62,32 +82,48 @@ function AppHeader() {
                     {/* LINKS PART */}
                     <div id="container-nav">
                         <nav>
-                            <ul>
+                            <ul className="nav-list">
                                 {navLinks.map((curLink, index) => {
                                     return (
-                                        <li key={index} className="nav-item">
+                                        <li key={index} className="nav-item rea-nav-link">
                                             <NavLink
-                                                className="rea-nav-link"
+                                                className="nav-link"
                                                 aria-current="page"
                                                 aria-haspopup={curLink.dropdown ? "true" : "false"}
                                                 to={curLink.path}
-                                            >{curLink.icon} {curLink.title} {curLink.secondIcon}
+                                            >
+                                                {curLink.icon} {curLink.title} {curLink.secondIcon}
                                             </NavLink>
                                             {curLink.dropdown && (
-                                                <ul className="dropdown" role="menu">
+                                                <div className="dropdown-menu" role="menu">
                                                     {curLink.dropdown.map((item, subIndex) => (
-                                                        <li key={subIndex} role="menuitem">
-                                                            <NavLink
-                                                            className="drop-item"
-                                                            to={item.path}>
-                                                                {item.title}
+                                                        <div key={subIndex} className="dropdown-column">
+                                                            {/* Nome della collezione come header della colonna */}
+                                                            <NavLink className="dropdown-header" to={item.path}>
+                                                                <h5>
+                                                                    {item.title}
+                                                                </h5>
                                                             </NavLink>
-                                                        </li>
+                                                            {item.subDropdown && item.subDropdown.length > 0 && (
+                                                                <ul className="dropdown-items">
+                                                                    {item.subDropdown.slice(0, 3).map((subItem, subItemIndex) => (
+                                                                        <li key={subItemIndex} role="menuitem">
+                                                                            <NavLink to={subItem.path} className="dropdown-item">
+                                                                                {subItem.title}
+                                                                            </NavLink>
+                                                                        </li>
+                                                                    ))}
+                                                                    <li>
+                                                                        <a href="/mobili" className="dropdown-item"><i>INTERA COLLEZIONE...</i></a>
+                                                                    </li>
+                                                                </ul>
+                                                            )}
+                                                        </div>
                                                     ))}
-                                                </ul>
+                                                </div>
                                             )}
                                         </li>
-                                    )
+                                    );
                                 })}
                             </ul>
                             {/* LINKS PART */}
