@@ -63,7 +63,7 @@ function AppHeader() {
 
     return (
         <>
-            <header>
+            <header id="header">
                 <div id="top-bar">
                     {/* LOGO & SEARCHBAR PART */}
                     <div id="image-search">

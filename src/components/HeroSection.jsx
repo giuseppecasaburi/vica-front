@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./heroSection.css"
 
 function HeroSection() {
@@ -20,14 +20,14 @@ function HeroSection() {
                     </p>
                     <div className="hero-buttons mt-5 animate-text">
                         <button className="btn btn-color-p m-2">
-                            <NavLink to={"/collezioni"}>
+                            <Link to={"/collezioni"}>
                                 Esplora la nostra collezione
-                            </NavLink>
+                            </Link>
                         </button>
                         <button className="btn btn-color-s m-2 ">
-                            <NavLink to={"/contatti"}>
+                            <Link to={"/contatti"}>
                                 Richiedi un preventivo gratuito
-                            </NavLink>
+                            </Link>
                         </button>
                     </div>
                 </div>

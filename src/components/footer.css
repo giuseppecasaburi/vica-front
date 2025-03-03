@@ -1,0 +1,82 @@
+/*---------------------------- FONT & COLOR ------------------------------*/
+/* Titoli e intestazioni → Playfair Display (Elegante, serif) 
+Testo paragrafo → Poppins o Lato (Sans-serif, leggibile e moderno) 
+Pulsanti e call-to-action → Montserrat (Sans-serif, leggermente bold per maggiore impatto)  */
+:root {
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Poppins', sans-serif;
+    --font-button: 'Montserrat', sans-serif;
+}
+
+:root {
+    --color-background: #F8F9FA;
+    /*BIANCO SPORCO*/
+    --color-secondary-bg: #EAEDED;
+    /*GRIGIO CHIARO*/
+    --color-primary: #2C3E50;
+    /*BLU PETROLIO*/
+    --color-secondary: #A3B899;
+    /*VERDE SALVIA*/
+    --color-text: #333333;
+    /*ANTRACITE*/
+    --color-text-secondary: #666666;
+    /*GRIGIO MEDIO*/
+    --color-button: #34495E;
+    /*BLU NAVY*/
+    --color-button-hover: #C4A35A;
+    /*ORO SATINATO*/
+    --color-border: #444444;
+    /*GRIGIO SCURO*/
+}
+
+/*---------------------------- FONT & COLOR ------------------------------*/
+
+#footer {
+    background-color: var(--color-button);
+    color: var(--color-secondary-bg);
+}
+
+#container-footer {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.container-col {
+    display: flex;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+#photo-area {
+    width: 30%;
+}
+
+#photo-area img {
+    width: 100%;
+    display: block;
+    padding-right: 10px;
+}
+
+.columns {
+    width: 70%;
+    display: flex;
+    gap: 20px;
+}
+
+.column1 {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+}
+
+.column2 {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+.columns p:hover {
+    color: var(--color-button-hover);
+}
+
+
