@@ -53,6 +53,7 @@ li {
 header {
     background-color: var(--color-secondary-bg);
     padding-top: 20px;
+    height: 200px;
 }
   
   /* Logo e barra di ricerca */

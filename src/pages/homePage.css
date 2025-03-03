@@ -1,0 +1,199 @@
+/*---------------------------- FONT & COLOR ------------------------------*/
+/* Titoli e intestazioni → Playfair Display (Elegante, serif) 
+Testo paragrafo → Poppins o Lato (Sans-serif, leggibile e moderno) 
+Pulsanti e call-to-action → Montserrat (Sans-serif, leggermente bold per maggiore impatto)  */
+:root {
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Poppins', sans-serif;
+    --font-button: 'Montserrat', sans-serif;
+}
+
+
+/* Sfondo chiaro con testi scuri per leggibilità
+Accenti di blu petrolio e verde salvia per un look sofisticato
+Bottoni con colori contrastanti per attirare l’attenzione (blu navy con hover oro satinato)
+Bordi e dettagli in grigio scuro per definire gli elementi senza appesantire il design */
+:root {
+    --color-background: #F8F9FA;
+    /*BIANCO SPORCO*/
+    --color-secondary-bg: #EAEDED;
+    /*GRIGIO CHIARO*/
+    --color-primary: #2C3E50;
+    /*BLU PETROLIO*/
+    --color-secondary: #A3B899;
+    /*VERDE SALVIA*/
+    --color-text: #333333;
+    /*ANTRACITE*/
+    --color-text-secondary: #666666;
+    /*GRIGIO MEDIO*/
+    --color-button: #34495E;
+    /*BLU NAVY*/
+    --color-button-hover: #C4A35A;
+    /*ORO SATINATO*/
+    --color-border: #444444;
+    /*GRIGIO SCURO*/
+}
+
+/*-------------------------------- RESET ---------------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+li {
+    list-style: none;
+}
+
+/*-------------------------------- RESET ---------------------------------*/
+
+#our-company {
+    background-color: var(--color-secondary-bg);
+    padding: 80px 0;
+}
+
+#contenitore-our-company {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+}
+
+#photo {
+    width: 40%;
+    height: 800px;
+}
+
+.video-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-top-left-radius: 450px;
+    border-top-right-radius: 450px;
+}
+
+#description {
+    width: 60%;
+    height: 800px;
+}
+
+#content {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.welcome {
+    color: var(--color-button-hover);
+    font: var(--font-heading);
+    padding: 0 0 10px;
+    font-size: 19px;
+}
+
+
+#content h2 {
+    padding-bottom: 10px;
+}
+
+#paragraph {
+    font-size: 18px;
+    padding-bottom: 15px;
+}
+
+.bottone {
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17px;
+    border: none;
+}
+
+.cerchio-immagine {
+    margin: 40px auto;
+    width: 400px; /* Larghezza */
+    height: 400px; /* Altezza */
+    border-radius: 50%; /* Rende il div un cerchio */
+    overflow: hidden; /* Nasconde la parte che esce fuori dal cerchio */
+}
+
+.cerchio-immagine img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Adatta l'immagine mantenendo il rapporto d'aspetto */
+}
+
+#collection-section {
+    background-color: var(--color-secondary-bg);
+    padding: 80px 0;
+    display: flex;
+}
+
+#first-area,
+#second-area {
+    width: 50%;
+    padding-top: 20px;
+}
+
+#first-area {
+    padding-right: 10px;
+}
+
+#text-content {
+    width: 70%;
+    margin-left: auto;
+}
+
+#text-content h2 {
+    padding-bottom: 10px;
+}
+
+#text-content button {
+    margin: 10px 0 80px;
+}
+
+#image-content {
+    max-width: 100%;
+    display: flex;
+    gap: 20px;
+}
+
+#image-content img {
+    width: calc(50% - 10px);
+}
+
+#second-area-content {
+    display: flex;
+    flex-direction: column;
+    padding-right: 10px;
+}
+
+
+#second-area img,
+#second-area p {
+    width: 70%;
+    height: 70%;
+    margin-left: auto;
+    display: block;
+}
+
+#second-area p {
+    padding: 20px 0;
+}

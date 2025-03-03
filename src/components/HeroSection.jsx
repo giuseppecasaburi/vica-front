@@ -19,12 +19,12 @@ function HeroSection() {
                         Scopri la nostra selezione di arredi bagno eleganti e funzionali. <br />Dai lavabo moderni alle docce di lusso, ogni dettaglio è pensato per offrirti comfort e stile.
                     </p>
                     <div className="hero-buttons mt-5 animate-text">
-                        <button className="btn btn-color-p m-2 cta pulsanti-primari">
+                        <button className="btn btn-color-p m-2">
                             <NavLink to={"/collezioni"}>
                                 Esplora la nostra collezione
                             </NavLink>
                         </button>
-                        <button className="btn btn-color-s m-2 cta colore-secondario">
+                        <button className="btn btn-color-s m-2 ">
                             <NavLink to={"/contatti"}>
                                 Richiedi un preventivo gratuito
                             </NavLink>

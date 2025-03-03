@@ -23,6 +23,7 @@ Pulsanti e call-to-action → Montserrat (Sans-serif, leggermente bold per maggi
 
 /* ---- Hero Section ---- */
 .hero {
+    height: calc(100vh - 200px) ;
     position: relative;
     overflow: hidden;
     text-align: center;
@@ -40,7 +41,7 @@ Pulsanti e call-to-action → Montserrat (Sans-serif, leggermente bold per maggi
   .hero img {
     width: 100%;
     object-fit: cover;
-    height: 500px;
+    max-height: 100%;
   }
 
   .hero-content {
