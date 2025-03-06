@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import "./appHeader.css"
 import axios from "axios";
 import { useEffect, useState } from "react";
+import SidebarMenu from "./SidebarMenu";
 
 const apiUrl = import.meta.env.VITE_NODE_ENV === "development" ? import.meta.env.VITE_API_URL_DEV : import.meta.env.VITE_API_URL_PROD
 
@@ -71,6 +72,7 @@ function AppHeader() {
                             <a href="">
                                 <img src="images/test_foto.svg" alt="" id="logo" />
                             </a>
+                            <SidebarMenu navLinks={navLinks } />
                         </div>
                         <div className="search-bar">
                             <input type="text" name="" placeholder="Cerca nel nostro catalogo" />
@@ -79,6 +81,7 @@ function AppHeader() {
                     </div>
                     {/* /LOGO & SEARCHBAR PART */}
                     <hr className="custom-hr" />
+                    
                     {/* LINKS PART */}
                     <div id="container-nav">
                         <nav>

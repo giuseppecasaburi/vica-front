@@ -31,6 +31,70 @@ Pulsanti e call-to-action → Montserrat (Sans-serif, leggermente bold per maggi
 
 /*---------------------------- FONT & COLOR ------------------------------*/
 
+/* ---- Header ---- */
+header {
+  background-color: var(--color-secondary-bg);
+  padding-top: 20px;
+  height: 200px;
+}
+
+/* Logo e barra di ricerca */
+#top-bar {
+  width: 85%;
+  margin: 0 auto;
+}
+
+#logo {
+  height: 10vh;
+  max-height: 70px;
+  padding-right: 20px;
+  width: auto;
+}
+
+#image-search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#image {
+  width: 30%;
+}
+
+.search-bar {
+  display: flex;
+  width: 70%;
+  gap: 10px;
+}
+
+.search-bar input {
+  width: 80%;
+  padding: 8px;
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+}
+
+.search-bar button {
+  width: 20%;
+  background-color: var(--color-button);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 20px;
+  font-size: 17px;
+}
+
+.search-bar button:hover {
+  background-color: var(--color-button-hover);
+}
+
+.custom-hr {
+  border: none;
+  height: 2px;
+  background-color: #34495E;
+}
+
 /* ---- Navbar ---- */
 nav {
   background-color: var(--color-secondary-bg);
@@ -88,7 +152,8 @@ nav ul li.nav-item {
   padding: 10px;
   display: block;
   position: relative;
-  text-decoration: none; /* Rimuove sottolineatura predefinita */
+  text-decoration: none;
+  /* Rimuove sottolineatura predefinita */
   transition: color 0.3s ease-in-out;
 }
 
@@ -99,68 +164,160 @@ nav ul li.nav-item {
 
 /* Dropdown: si posiziona in modo assoluto rispetto al nav-item e usa il flex per le colonne */
 .dropdown-menu {
-  max-width: none;
   position: absolute;
   top: 100%;
-  left: 0;
   display: flex;
-  /* Le colonne saranno affiancate */
   background: var(--color-secondary-bg);
   border: 1px solid #ccc;
   padding: 10px;
-  gap: 20px;
+  gap: 15px;
   visibility: hidden;
   opacity: 0;
-  transform: translateY(-10px);
   transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
   z-index: 2000;
-  /* Deve comparire sopra altri elementi (es. l'hero) */
-}
-
-/* Effetto hover per gli elementi del dropdown */
-.nav-link:hover {
-  color: var(--color-button-hover);
-}
+  max-width: 95vw; /* Limita la larghezza massima */
+  box-sizing: border-box; /* Include padding nel calcolo della larghezza */
+  left: 50%; /* Centra il dropdown */}
 
 /* Mostra il dropdown quando si passa con il mouse sul nav-item */
 .nav-item:hover .dropdown-menu {
   visibility: visible;
   opacity: 1;
+  transform: translateX(-45%) translateY(0); /* Mantiene il centering durante l'animazione */
 }
 
 /* Ogni colonna del dropdown */
 .dropdown-column {
   display: flex;
   flex-direction: column;
+  flex: 1; /* Distribuisce lo spazio in modo uguale */
+  min-width: 0; /* Rimuove la larghezza minima */
 }
 
-/* Header della collezione (nome in cima alla colonna) */
+/* Header della collezione */
 .dropdown-header {
   font-weight: bold;
   color: #333;
   text-decoration: none;
   margin-bottom: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/* Lista verticale dei modelli */
+/* Il resto del CSS rimane invariato */
 .dropdown-items {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  /* Forza la disposizione verticale */
 }
 
-/* Elementi della lista dei modelli */
 .dropdown-item {
   text-decoration: none;
   color: #555;
-  padding: 8px 0;
+  padding: 6px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.dropdown-item:hover,
-.dropdown-header:hover {
+.dropdown-item:hover, .dropdown-header:hover {
   color: var(--color-button-hover);
   background-color: var(--color-secondary-bg);
+}
+/* ---- Media Queries per la responsività ---- */
+
+/* Tablet e dispositivi medi (fino a 768px) */
+@media (max-width: 840px) {
+  header {
+    height: auto;
+    padding: 20px 0;
+  }
+
+  #top-bar {
+    width: 95%;
+  }
+
+  /* Disposizione verticale per logo e search bar */
+  #image-search {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #image {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .search-bar {
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .search-bar input,
+  .search-bar button {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  /* Riduzione dimensioni del font della navbar */
+  .nav-item {
+    font-size: 18px;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav ul li {
+    margin: 5px 10px;
+  }
+
+  /* Se il dropdown dovesse essere troppo largo, si può limitare la larghezza */
+  .dropdown-menu {
+    flex-direction: column;
+    gap: 10px;
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    border: none;
+    padding: 0;
+  }
+
+  #container-nav {
+    display: none;
+  }
+  
+  hr {
+    display: none;
+  }
+
+}
+
+/* Mobile (fino a 480px) */
+@media (max-width: 480px) {
+  /* Riduci ulteriormente padding e font-size */
+  .nav-item {
+    font-size: 16px;
+  }
+
+  .search-bar input,
+  .search-bar button {
+    font-size: 14px;
+    padding: 6px;
+  }
+}
+
+@media (max-width: 769px) {
+
+  
+
 }

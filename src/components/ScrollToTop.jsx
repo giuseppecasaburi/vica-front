@@ -28,9 +28,11 @@ function ScrollToTop() {
     return (
         <>
             {isVisible && (
-                <button onClick={scrollToTop} className="scroll-to-top">
-                    <i className="fa-solid fa-arrow-up"></i>
-                </button>
+                <div className="container-scroll">
+                    <button onClick={scrollToTop} className="scroll-to-top">
+                        <i className="fa-solid fa-arrow-up"></i>
+                    </button>
+                </div>
             )}
         </>
     );

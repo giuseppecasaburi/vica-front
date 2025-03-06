@@ -30,10 +30,12 @@ const SidebarMenu = ({ navLinks }) => {
 
             {/* Sidebar menu */}
             <aside className={`sidebar-menu ${openMenu ? "open" : ""}`}>
-                <button className="close-btn" onClick={closeMenu} aria-label="Close-menu">
-                    <i className="fa fa-times"></i>
-                </button>
-                <h3>Menu</h3>
+                <div id="close-menu">
+                    <button className="close-btn" onClick={closeMenu} aria-label="Close-menu">
+                        <i className="fa fa-times"></i>
+                    </button>
+                    <h3>Menu</h3>
+                </div>
 
                 <nav>
                     <ul className="hamburger-menu">

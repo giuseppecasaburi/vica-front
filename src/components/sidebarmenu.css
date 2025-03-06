@@ -53,19 +53,20 @@
 .sidebar-menu {
     position: fixed;
     top: 0;
-    left: -50%;
+    right: -50%;
     width: 40%;
-    height: 100vh;
+    /* In schermi medi/grandi il menu occupa il 40% */
+    height: 100%;
     background: var(--color-secondary-bg);
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
-    transition: left 0.5s ease-in-out;
+    transition: right 0.5s ease-in-out;
     z-index: 1100;
     padding: 20px;
     overflow-y: auto;
 }
 
 .sidebar-menu.open {
-    left: 0;
+    right: 0;
 }
 
 /* ----- CLOSE BUTTON ----- */
@@ -110,15 +111,18 @@
 
 /* ----- DROPDOWN ----- */
 .rs-dropdown-menu {
-    display: block;      /* Rimane nel flusso del documento */
-    max-height: 0;       /* Inizialmente chiuso */
+    display: block;
+    /* Rimane nel flusso del documento */
+    max-height: 0;
+    /* Inizialmente chiuso */
     overflow: hidden;
     opacity: 0;
     transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 .rs-dropdown-menu.show {
-    max-height: 100%;  /* Imposta un'altezza sufficiente per il contenuto */
+    max-height: 100%;
+    /* Espande fino a contenere tutto il contenuto */
     opacity: 1;
 }
 
@@ -159,10 +163,104 @@ aside h3 {
     padding: 0 10px;
 }
 
-@media (min-width: 769px) {
+/* ----- RESPONSIVE ADATTAMENTI ----- */
+
+/* Per schermi fino a 768px (tablet e smartphone in orientamento verticale) */
+@media (max-width: 840px) {
+    .sidebar-menu {
+        width: 50%;
+        /* Occupa il 80% della larghezza */
+        right: -80%;
+        padding: 15px;
+    }
+
+    .sidebar-menu.open {
+        right: 0;
+    }
+
+    .close-btn {
+        font-size: 20px;
+        top: 10px;
+        right: 10px;
+    }
+
+    .sidebar-link {
+        padding: 8px 0;
+        font-size: 16px;
+    }
+
+    .rs-dropdown-button-menu {
+        font-size: 14px;
+        padding-left: 5px;
+    }
+
+    .rs-dropdown-item {
+        font-size: 14px;
+        padding: 4px 0;
+    }
+
+    aside h3 {
+        font-size: 20px;
+        padding: 0 5px;
+    }
+
+    .hamburger-btn {
+        position: static;
+    }
+
+    #close-menu button,
+    #close-menu h3 {
+        padding: 10px 0;
+    }
+}
+
+/* Per schermi molto piccoli, fino a 480px */
+@media (max-width: 480px) {
+    .sidebar-menu {
+        width: 70%;
+        /* Occupa quasi tutta la larghezza */
+        right: -90%;
+        padding: 10px;
+    }
+
+    .sidebar-menu.open {
+        right: 0;
+    }
+
+    .close-btn {
+        font-size: 18px;
+        top: 8px;
+        right: 8px;
+    }
+
+    .sidebar-link {
+        padding: 6px 0;
+        font-size: 14px;
+    }
+
+    .rs-dropdown-button-menu {
+        font-size: 12px;
+        padding-left: 5px;
+    }
+
+    .rs-dropdown-item {
+        font-size: 12px;
+        padding: 3px 0;
+    }
+
+    aside h3 {
+        font-size: 18px;
+        padding: 0 5px;
+    }
+}
+
+/* Nasconde il menu laterale, il bottone hamburger e overlay per schermi grandi */
+@media (min-width: 840px) {
+
     .hamburger-btn,
     .hamburger-menu,
-    .overlay-hamburger {
+    .overlay-hamburger,
+    .sidebar-menu {
         display: none;
     }
 }

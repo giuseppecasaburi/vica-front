@@ -3,13 +3,13 @@ import AppHeader from "../components/AppHeader";
 import AppFooter from "../components/AppFooter";
 import ScrollToTop from "../components/ScrollToTop";
 
-function AppLayout () {
+function AppLayout() {
     return (
         <>
-        <AppHeader />
-        <Outlet/>
-        <ScrollToTop/>
-        <AppFooter/>
+            <AppHeader />
+            <Outlet />
+            <ScrollToTop />
+            <AppFooter />
         </>
     )
 }
