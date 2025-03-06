@@ -1,0 +1,168 @@
+:root {
+    --color-background: #F8F9FA;
+    /*BIANCO SPORCO*/
+    --color-secondary-bg: #EAEDED;
+    /*GRIGIO CHIARO*/
+    --color-primary: #2C3E50;
+    /*BLU PETROLIO*/
+    --color-secondary: #A3B899;
+    /*VERDE SALVIA*/
+    --color-text: #333333;
+    /*ANTRACITE*/
+    --color-text-secondary: #666666;
+    /*GRIGIO MEDIO*/
+    --color-button: #34495E;
+    /*BLU NAVY*/
+    --color-button-hover: #C4A35A;
+    /*ORO SATINATO*/
+    --color-border: #444444;
+    /*GRIGIO SCURO*/
+}
+
+
+/* ----- HAMBURGER BUTTON ----- */
+.hamburger-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+.hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+}
+
+/* ----- OVERLAY (Sfondo scuro) ----- */
+.overlay-hamburger {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+/* ----- SIDEBAR MENU ----- */
+.sidebar-menu {
+    position: fixed;
+    top: 0;
+    left: -50%;
+    width: 40%;
+    height: 100vh;
+    background: var(--color-secondary-bg);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+    transition: left 0.5s ease-in-out;
+    z-index: 1100;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.sidebar-menu.open {
+    left: 0;
+}
+
+/* ----- CLOSE BUTTON ----- */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* ----- MENU LIST ----- */
+.sidebar-nav {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-item {
+    display: block;
+}
+
+.rs-top-row {
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-link {
+    display: block;
+    padding: 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.sidebar-link:hover,
+.sidebar-link.active {
+    color: var(--color-button-hover);
+}
+
+/* ----- DROPDOWN ----- */
+.rs-dropdown-menu {
+    display: block;      /* Rimane nel flusso del documento */
+    max-height: 0;       /* Inizialmente chiuso */
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.rs-dropdown-menu.show {
+    max-height: 100%;  /* Imposta un'altezza sufficiente per il contenuto */
+    opacity: 1;
+}
+
+.rs-dropdown-header {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.rs-dropdown-section {
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.rs-dropdown-items {
+    display: flex;
+    flex-direction: column;
+    padding-left: 15px;
+    list-style: none;
+}
+
+.rs-dropdown-item {
+    display: block;
+    padding: 5px 0;
+    font-size: 16px;
+    color: #666;
+    text-decoration: none;
+}
+
+.rs-dropdown-button-menu {
+    background-color: var(--color-secondary-bg);
+    text-decoration: none;
+    border: none;
+    padding-left: 10px;
+    font-size: 16px;
+}
+
+aside h3 {
+    padding: 0 10px;
+}
+
+@media (min-width: 769px) {
+    .hamburger-btn,
+    .hamburger-menu,
+    .overlay-hamburger {
+        display: none;
+    }
+}
