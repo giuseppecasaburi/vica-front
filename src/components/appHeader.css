@@ -31,8 +31,8 @@ Pulsanti e call-to-action → Montserrat (Sans-serif, leggermente bold per maggi
 
 :root {
   --header-height-desktop: 200px;
-  --header-height-responsive: 150px;
-  --header-height-responsive-l: 145px;
+  --header-height-responsive: 180px;
+  --header-height-responsive-l: 165px;
 }
 
 /*---------------------------- FONT & COLOR ------------------------------*/

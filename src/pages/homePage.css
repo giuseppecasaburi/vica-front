@@ -58,8 +58,9 @@ li {
 /*-------------------------------- RESET ---------------------------------*/
 
 #our-company {
+    flex-direction: column;
     background-color: var(--color-secondary-bg);
-    padding: 80px 0;
+    padding: 50px 0;
 }
 
 #contenitore-our-company {
@@ -68,36 +69,39 @@ li {
     display: flex;
 }
 
-#photo {
-    width: 40%;
-    height: 800px;
-}
-
-.video-container {
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-
-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    border-top-left-radius: 450px;
-    border-top-right-radius: 450px;
-}
-
 #description {
-    width: 60%;
-    height: 800px;
+    width: 100%;
+    height: auto;
+    padding: 40px 0;
 }
 
 #content {
-    width: 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100%;
     height: 100%;
-    margin: 0 auto;
-    text-align: center;
+}
+
+/* Colonna sinistra: testo */
+.text-content {
+    width: 70%;
+    padding-right: 20px;
+    text-align: left;
+}
+
+.text-content hr {
+    margin: 30px 0;
+}
+
+/* Colonna destra: gruppo visual (cerchio + bottone) */
+.visual-group {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .welcome {
@@ -114,10 +118,12 @@ video {
 
 #paragraph {
     font-size: 18px;
-    padding-bottom: 15px;
+    margin-top: auto;
 }
 
 .bottone {
+    margin-top: auto;
+    margin-bottom: 16px;
     padding: 10px 20px;
     border-radius: 20px;
     cursor: pointer;
@@ -126,19 +132,27 @@ video {
     border: none;
 }
 
+
 .cerchio-immagine {
-    margin: 40px auto;
-    width: 400px; /* Larghezza */
-    height: 400px; /* Altezza */
-    border-radius: 50%; /* Rende il div un cerchio */
-    overflow: hidden; /* Nasconde la parte che esce fuori dal cerchio */
+    border-radius: 50%;
+    overflow: hidden;
+    width: 250px;
+    height: 250px;
+    min-width: 200px;
+    max-width: 250px;
+    min-height: 250px;
+    max-height: 250px;
+    flex: 0 0 auto;
+    align-self: center;
 }
 
 .cerchio-immagine img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Adatta l'immagine mantenendo il rapporto d'aspetto */
+    object-fit: cover;
+    /* Adatta l'immagine mantenendo il rapporto d'aspetto */
 }
+
 
 #collection-section {
     background-color: var(--color-secondary-bg);
@@ -196,4 +210,51 @@ video {
 
 #second-area p {
     padding: 20px 0;
+}
+
+
+@media (max-width: 768px) {
+
+    /* Il container principale rimane in colonna */
+    #contenitore-our-company {
+        flex-direction: column;
+    }
+
+    .visual-group {
+        width: 60%;
+    }
+
+
+    #description {
+        width: 100%;
+    }
+
+    /* All'interno della descrizione, il contenuto passa a colonna */
+    #content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .text-content {
+        width: 100%;
+        padding: 0 20px;
+        text-align: center;
+    }
+
+    .cerchio-immagine {
+        margin: 10px 0;
+    }
+
+    .bottone {
+        width: 100%;
+        margin: 10px 0;
+        display: block;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 425px) {
+    .visual-group {
+        width: 100%;
+    }
 }

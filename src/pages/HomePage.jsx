@@ -10,21 +10,23 @@ function HomePage() {
                 <HeroSection />
                 <section id="our-company">
                     <div id="contenitore-our-company">
-                        <div id="photo">
-                            <div className="video-container">
-                                <video loop muted autoPlay>
-                                    <source src="../images/video_arredo.mp4" type="video/mp4" />
-                                </video>
-                            </div>
-                        </div>
                         <div id="description">
                             <div id="content">
-                                <p className="welcome">WELCOME TO VICA ARREDO BAGNO</p>
-                                <h2>PROFESSIONISMO E QUALITA' DA GENERAZIONI</h2>
-                                <p id="paragraph">"Da oltre 50 anni, Vica Linea Bagno è sinonimo di eccellenza nel settore dell’arredo bagno. <br />I nostri prodotti, realizzati con materiali di alta qualità e design all’avanguardia, sono pensati per durare nel tempo e adattarsi a qualsiasi ambiente."</p>
-                                <button className="btn-color-p bottone"><NavLink to={"/contatti"}>About company <i className="fa-solid fa-arrow-right-long"></i></NavLink></button>
-                                <div className="cerchio-immagine">
-                                    <img src="./images/album_colori.jpg" alt="" />
+                                <div className="text-content">
+                                    <p className="welcome">WELCOME TO VICA ARREDO BAGNO</p>
+                                    <h2>PROFESSIONALITÀ E QUALITÀ DA GENERAZIONI</h2>
+                                    <p id="paragraph">Da oltre 50 anni, Vica Linea Bagno rappresenta l’eccellenza nell’arredo bagno, trasformando ogni ambiente in un'oasi di stile e benessere. La nostra missione è creare spazi unici, dove design ricercato e funzionalità impeccabile si fondono armoniosamente.
+                                    <br />
+                                    <hr />
+                                    Ogni nostro prodotto è realizzato con materiali pregiati, selezionati per garantire durata, comfort e un’estetica raffinata. Dalle linee moderne alle soluzioni su misura, ogni dettaglio è pensato per elevare la tua esperienza quotidiana e rendere il bagno un luogo di puro piacere e relax."</p>
+                                </div>
+                                <div className="visual-group">
+                                    <div className="cerchio-immagine">
+                                        <img src="./images/album_colori.jpg" alt="" />
+                                    </div>
+                                    <button className="btn-color-p bottone">
+                                        <NavLink to={"/contatti"} id="btn-nav-link">About company <i className="fa-solid fa-arrow-right-long"></i></NavLink>
+                                    </button>
                                 </div>
                             </div>
                         </div>
