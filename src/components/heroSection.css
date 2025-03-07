@@ -19,15 +19,21 @@ Pulsanti e call-to-action → Montserrat (Sans-serif, leggermente bold per maggi
     --color-button-hover: #C4A35A; /*ORO SATINATO*/
     --color-border: #444444; /*GRIGIO SCURO*/
 }
+
+:root {
+  --header-height-desktop: 200px;
+  --header-height-responsive: 150px;
+  --header-height-responsive-l: 145px;
+}
 /*---------------------------- FONT & COLOR ------------------------------*/
 
 /* ---- Hero Section ---- */
 .hero {
-    height: calc(100vh - 200px) ;
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-  }
+  height: calc(100vh - var(--header-height-desktop)); /* Occupa l'intero viewport */
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
 
   .overlay {
     background-color: rgba(0, 0, 0, 0.5);
@@ -40,16 +46,20 @@ Pulsanti e call-to-action → Montserrat (Sans-serif, leggermente bold per maggi
   
   .hero img {
     width: 100%;
+    height: 100%;
     object-fit: cover;
     max-height: 100%;
   }
 
   .hero-content {
     width: 70%;
+    max-width: 1200px;
+    max-height: 100%;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%)
+    transform: translate(-50%, -50%);
+    padding: 0 20px;
   }
   
   .hero h1 {
@@ -67,7 +77,14 @@ Pulsanti e call-to-action → Montserrat (Sans-serif, leggermente bold per maggi
     
   }
 
+  .hero-buttons {
+    padding: 16px 0;
+  }
+
 .hero-buttons .btn {
+    margin: 8px;
+    width: 100%;
+    max-width: 280px;
     padding: 10px 20px;
     border-radius: 20px;
     cursor: pointer;
@@ -130,4 +147,45 @@ Pulsanti e call-to-action → Montserrat (Sans-serif, leggermente bold per maggi
     opacity: 0;
     animation: slideFromBottom 1.5s ease-out forwards;
     animation-delay: 0.3s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 870px) {
+  .hero {
+    height: calc(100vh - var(--header-height-responsive));
+  }
+
+  .hero-content {
+    width: 90%; /* Occupa più spazio per schermi piccoli */
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 483px) {
+  .hero {
+    height: calc(100vh - var(--header-height-responsive-l));
+  }
+
+  .hero-buttons {
+    padding: 0;
+  }
+
+  .hero-buttons button {
+    margin-top: 0;
+  }
+
 }

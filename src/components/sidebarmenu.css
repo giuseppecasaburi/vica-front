@@ -168,7 +168,7 @@ aside h3 {
 /* ----- RESPONSIVE ADATTAMENTI ----- */
 
 /* Per schermi fino a 768px (tablet e smartphone in orientamento verticale) */
-@media (max-width: 840px) {
+@media (max-width: 870px) {
     .sidebar-menu {
         width: 50%;
         /* Occupa il 80% della larghezza */
@@ -257,7 +257,7 @@ aside h3 {
 }
 
 /* Nasconde il menu laterale, il bottone hamburger e overlay per schermi grandi */
-@media (min-width: 840px) {
+@media (min-width: 870px) {
 
     .hamburger-btn,
     .hamburger-menu,

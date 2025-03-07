@@ -29,13 +29,20 @@ Pulsanti e call-to-action → Montserrat (Sans-serif, leggermente bold per maggi
   /*GRIGIO SCURO*/
 }
 
+:root {
+  --header-height-desktop: 200px;
+  --header-height-responsive: 150px;
+  --header-height-responsive-l: 145px;
+}
+
 /*---------------------------- FONT & COLOR ------------------------------*/
 
 /* ---- Header ---- */
 header {
+  box-sizing: border-box;
   background-color: var(--color-secondary-bg);
-  padding-top: 20px;
-  height: 200px;
+  padding: 20px 0;
+  height: var(--header-height-desktop);
 }
 
 /* Logo e barra di ricerca */
@@ -168,7 +175,7 @@ nav ul li.nav-item {
   top: 100%;
   left: 50%;
   /* Manteniamo il centraggio orizzontale, ma aggiungiamo uno spostamento verticale iniziale */
-  transform: translateX(-50%) translateY(10px);
+  transform: translateX(-50%) translateY(0);
   display: flex;
   background: var(--color-secondary-bg);
   border: 1px solid #ccc;
@@ -233,10 +240,9 @@ nav ul li.nav-item {
 /* ---- Media Queries per la responsività ---- */
 
 /* Tablet e dispositivi medi (fino a 768px) */
-@media (max-width: 840px) {
+@media (max-width: 870px) {
   header {
-    height: auto;
-    padding: 20px 0;
+    height: var(--header-height-responsive);
   }
 
   #top-bar {
@@ -257,16 +263,26 @@ nav ul li.nav-item {
     margin-bottom: 20px;
   }
 
+  #logo {
+    height: 8vh;
+  }
+
   .search-bar {
     width: 100%;
-    flex-direction: column;
     gap: 10px;
   }
 
   .search-bar input,
   .search-bar button {
-    width: 100%;
     font-size: 16px;
+  }
+
+  .search-bar input {
+    width: 80%;
+  }
+
+  .search-bar button {
+    width: 20%;
   }
 
   /* Riduzione dimensioni del font della navbar */
@@ -307,6 +323,10 @@ nav ul li.nav-item {
 
 /* Mobile (fino a 480px) */
 @media (max-width: 480px) {
+  header {
+    height: var(--header-height-responsive-l);
+  }
+
   /* Riduci ulteriormente padding e font-size */
   .nav-item {
     font-size: 16px;
@@ -320,9 +340,13 @@ nav ul li.nav-item {
 }
 
 @media (max-width: 1100px) {
+  .dropdown-menu {
+    transform: translateX(-50%) translateY(0);
+    left: 90%;
+  }
+  
   .nav-item:hover .dropdown-menu {
-    /* Il menu scende verticalmente, mantenendo il centraggio */
-    transform: translateX(-40vw) translateY(0);
+    visibility: visible;
   }
 
 }

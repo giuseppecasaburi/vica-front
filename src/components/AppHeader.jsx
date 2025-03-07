@@ -47,11 +47,11 @@ function AppHeader() {
         {
             icon: <i className="fa-solid fa-bath"></i>,
             path: "/mobili",
-            title: "Mobili",
+            title: "Modelli",
             secondIcon: <i className="fa-solid fa-angle-down"></i>,
             dropdown: [
-                { title: "Opzione Mobili 1", path: "/mobili/opzione1" },
-                { title: "Opzione Mobili 2", path: "/mobili/opzione2" }
+                { title: "Opzione Modelli 1", path: "/modelli/opzione1" },
+                { title: "Opzione Modelli 2", path: "/modelli/opzione2" }
             ]
         },
         {
