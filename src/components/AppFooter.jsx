@@ -3,63 +3,73 @@ import "./footer.css"
 
 function AppFooter() {
     return (
-        <section id="footer">
+        <footer id="footer">
             <div id="container-footer">
-                <div className="container-col">
-                    <div id="photo-area" className="column col-1">
+                <div className="footer-wrapper">
+
+                    {/* Logo visibile */}
+                    <div className="footer-brand">
                         <a href="#header">
-                            <img id="link-photo" src="../images/test_foto.svg" alt="" />
+                            <img src="../images/test_foto.svg" alt="Logo" />
                         </a>
                     </div>
 
-                    <div className="columns">
-
-                        <div className="column1">
-                            <h3>Navigation</h3>
-                            <p><Link to={"/"}><i className="fa-solid fa-house"></i> Home</Link> </p>
-                            <p><Link to={"/collezioni"}><i className="fa-solid fa-sink"></i> Collezioni</Link></p>
-                            <p><Link to={"/mobili"}><i className="fa-solid fa-bath"></i> Modelli</Link></p>
-                            <p><Link to={"/contatti"}><i className="fa-solid fa-circle-info"></i> Contatti</Link></p>
+                    {/* Sezione superiore: Navigation e Link utili */}
+                    <div className="footer-top">
+                        <div className="footer-links">
+                            <nav className="nav-footer">
+                                <h3>Navigation</h3>
+                                <ul>
+                                    <li><Link to="/">Home</Link></li>
+                                    <li><Link to="/collezioni">Collezioni</Link></li>
+                                    <li><Link to="/mobili">Modelli</Link></li>
+                                    <li><Link to="/contatti">Contatti</Link></li>
+                                </ul>
+                            </nav>
+                            <nav className="nav-footer">
+                                <h3>Link utili</h3>
+                                <ul>
+                                    <li><a href="#"><i className="fa-brands fa-facebook"></i> Facebook</a></li>
+                                    <li>
+                                        <a href="https://www.instagram.com/vica_lineabagno/">
+                                            <i className="fa-brands fa-instagram"></i> Instagram
+                                        </a>
+                                    </li>
+                                    <li><a href="#"><i className="fa-brands fa-tiktok"></i> TikTok</a></li>
+                                </ul>
+                            </nav>
                         </div>
-                        
-                        <div className="column1">
-                            <h3>Link utili</h3>
-                            <p className="">
-                                <a href="">
-                                    Facebook <i className="fa-brands fa-facebook"></i>
-                                </a>
-                            </p>
-                            <p className="">
-                                <a href="https://www.instagram.com/vica_lineabagno/">
-                                    Instagram <i className="fa-brands fa-instagram"></i>
-                                </a>
-                            </p>
-                            <p className="">
-                                <a href="">
-                                    TikTok <i className="fa-brands fa-tiktok"></i>
-                                </a>
-                            </p>
-                        </div>
+                    </div>
 
-                        <div className="column2">
+                    {/* Sezione inferiore: Info a larghezza intera */}
+                    <div className="footer-bottom">
+                        <div className="footer-contact">
                             <h3>Info</h3>
-                            <p className="">
-                                <i className="fa-solid fa-location-dot"></i> Strada statale Appia 7/bis Km 18,600 - 80029 Sant'Antimo (NA), Italy
-                            </p>
-                            <p className="">
-                                <i className="fa-solid fa-clock"></i> LUN/VEN 9:00/13:00 16:00/20:00
-                            </p>
-                            <p className="">
-                                <i className="fa-solid fa-envelope-open-text"></i> test@libero.it
-                            </p>
-                            <p className="">
-                                <i className="fa-solid fa-phone-volume"></i> 081 505 8963
-                            </p>
+                            <address>
+                                <p>
+                                    <i className="fa-solid fa-location-dot"></i>Strada statale Appia 7/bis Km 18,600 - 80029 Sant'Antimo (NA), Italy
+                                </p>
+                                <p>
+                                    <i className="fa-solid fa-clock"></i>LUN/VEN 9:00/13:00 16:00/20:00
+                                </p>
+                                <p>
+                                    <i className="fa-solid fa-envelope-open-text"></i>test@libero.it
+                                </p>
+                                <p>
+                                    <i className="fa-solid fa-phone-volume"></i>081 505 8963
+                                </p>
+                            </address>
                         </div>
                     </div>
                 </div>
+                <div className="credit">
+                    <p>Copyright © 2024 www.vica-arredobagno.it Partita IVA 01478963258</p>
+                    <span>Proudly made by PeppeB96</span>
+                </div>
             </div>
-        </section>
+        </footer>
+
+
     )
 };
 

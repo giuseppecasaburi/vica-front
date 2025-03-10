@@ -1,82 +1,254 @@
-/*---------------------------- FONT & COLOR ------------------------------*/
-/* Titoli e intestazioni → Playfair Display (Elegante, serif) 
-Testo paragrafo → Poppins o Lato (Sans-serif, leggibile e moderno) 
-Pulsanti e call-to-action → Montserrat (Sans-serif, leggermente bold per maggiore impatto)  */
-:root {
-    --font-heading: 'Playfair Display', serif;
-    --font-body: 'Poppins', sans-serif;
-    --font-button: 'Montserrat', sans-serif;
-}
-
-:root {
-    --color-background: #F8F9FA;
-    /*BIANCO SPORCO*/
-    --color-secondary-bg: #EAEDED;
-    /*GRIGIO CHIARO*/
-    --color-primary: #2C3E50;
-    /*BLU PETROLIO*/
-    --color-secondary: #A3B899;
-    /*VERDE SALVIA*/
-    --color-text: #333333;
-    /*ANTRACITE*/
-    --color-text-secondary: #666666;
-    /*GRIGIO MEDIO*/
-    --color-button: #34495E;
-    /*BLU NAVY*/
-    --color-button-hover: #C4A35A;
-    /*ORO SATINATO*/
-    --color-border: #444444;
-    /*GRIGIO SCURO*/
-}
-
-/*---------------------------- FONT & COLOR ------------------------------*/
-
+/* Stile base del footer */
 #footer {
     background-color: var(--color-button);
-    color: var(--color-secondary-bg);
+    color: var(--color-footer-text, #e0e0e0);
+    padding-top: 60px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 #container-footer {
     width: 90%;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
-.container-col {
+.footer-wrapper {
     display: flex;
-    gap: 20px;
-    padding: 20px 0;
+    flex-direction: column;
+    width: 95%;
+    margin: 0 auto;
+    gap: 40px;
 }
 
-#photo-area {
-    width: 30%;
+/* Logo centrato e visibile solo in desktop */
+.footer-brand {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-#photo-area img {
+.footer-brand img {
+    max-width: 250px;
+    transition: transform 0.3s ease;
+}
+
+.footer-brand img:hover {
+    transform: scale(1.05);
+}
+
+.footer-top {
     width: 100%;
-    display: block;
-    padding-right: 10px;
 }
 
-.columns {
-    width: 70%;
+.footer-top .footer-links {
     display: flex;
-    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
 }
 
-.column1 {
-    width: 20%;
-    display: flex;
-    flex-direction: column;
+.footer-top .footer-links nav {
+    flex: 1 1 45%;
+    /* Assicura che i blocchi occupino il 45% e vadano a capo se necessario */
 }
 
-.column2 {
-    width: 60%;
-    display: flex;
-    flex-direction: column;
+.nav-footer {
+    background-color: inherit;
 }
 
-.columns p:hover {
+/* Stili comuni per entrambe le nav */
+.nav-footer h3,
+.footer-contact h3 {
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+.nav-footer ul {
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-footer ul li {
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+}
+
+.nav-footer ul li a {
+    color: var(--color-footer-text, #e0e0e0);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-contact address {
+    font-size: 1.3rem;
+    padding: 0 20px;
+    text-align: center;
+    font-style: normal;
+    line-height: 1.6;
+}
+
+
+/* Sezione info: larghezza intera */
+.footer-bottom .footer-contact {
+    width: 100%;
+}
+
+/* ---------- Hover per i link della navigazione ---------- */
+.nav-footer ul li a {
+    position: relative;
+    display: inline-block;
+    transition: transform 0.5s ease, color 0.5s ease;
+}
+
+.nav-footer ul li a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-button-hover);
+    transition: width 0.5s ease, left 0.5s ease;
+}
+
+.nav-footer ul li a:hover {
+    transform: scale(1.03);
     color: var(--color-button-hover);
 }
 
+.nav-footer ul li a:hover::after {
+    width: 100%;
+    left: 0;
+}
 
+/* ---------- Hover per i paragrafi di footer-contact ---------- */
+.footer-contact address {
+    /* Assicurati che l'overflow sia visibile per non tagliare il contenuto */
+    overflow: visible;
+}
+
+.footer-contact address p {
+    margin-bottom: 10px;
+    position: relative;
+    display: table;
+    /* Il p si restringe alla larghezza del contenuto */
+    margin-left: auto;
+    margin-right: auto;
+    transition: transform 0.5s ease, color 0.5s ease;
+    transform-origin: center;
+    cursor: pointer;
+    text-align: center;
+}
+
+.footer-contact address p:hover {
+    transform: scale(1.03);
+    color: var(--color-button-hover);
+}
+
+.footer-contact address p::after {
+    content: "";
+    display: block;
+    margin: 0 auto;
+    /* Centra la linea */
+    width: 0;
+    height: 2px;
+    background-color: var(--color-button-hover);
+    transition: width 0.5s ease;
+}
+
+.footer-contact address p:hover::after {
+    width: 100%;
+}
+
+.nav-footer ul {
+    flex-wrap: nowrap;
+}
+
+.footer-contact address p i {
+    margin-right: 8px;
+}
+
+.credit {
+    text-align: center;
+    font-size: 1rem;
+    /* Ridotto per maggiore eleganza */
+    color: var(--color-footer-text, #e0e0e0);
+    padding: 40px 0 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    width: 100%;
+    opacity: 0.8;
+    /* Testo meno invadente */
+}
+
+.credit p,
+.credit span {
+    display: block;
+    margin: 3px 0;
+    font-size: 0.9rem;
+    /* Testo ancora più contenuto */
+}
+
+.credit span {
+    font-size: 0.85rem;
+    opacity: 0.7;
+    /* Maggiore discrezione */
+}
+
+
+/* Responsive per tablet e smartphone */
+@media (max-width: 805px) {
+
+    /* Impilare le sezioni in colonna e occupare il 100% della larghezza */
+    .footer-wrapper {
+        gap: 20px;
+        align-items: center;
+        text-align: center;
+        width: 95%;
+    }
+
+    .footer-top .footer-links {
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .footer-top .footer-links nav {
+        width: 100%;
+    }
+
+    .footer-bottom .footer-contact {
+        width: 100%;
+    }
+
+    .nav-footer ul li {
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+    }
+
+    .footer-contact address {
+        font-size: 1rem;
+    }
+
+    .credit {
+        font-size: 0.9rem;
+    }
+    
+    .credit span {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 425px) {
+    .nav-footer ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        width: calc(100% / 4);
+        margin: 0 auto;
+    }
+}
