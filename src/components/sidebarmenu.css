@@ -1,26 +1,8 @@
-:root {
-    --color-background: #F8F9FA;
-    /*BIANCO SPORCO*/
-    --color-secondary-bg: #EAEDED;
-    /*GRIGIO CHIARO*/
-    --color-primary: #2C3E50;
-    /*BLU PETROLIO*/
-    --color-secondary: #A3B899;
-    /*VERDE SALVIA*/
-    --color-text: #333333;
-    /*ANTRACITE*/
-    --color-text-secondary: #666666;
-    /*GRIGIO MEDIO*/
-    --color-button: #34495E;
-    /*BLU NAVY*/
-    --color-button-hover: #C4A35A;
-    /*ORO SATINATO*/
-    --color-border: #444444;
-    /*GRIGIO SCURO*/
-}
+/* =====================================
+   HAMBURGER BUTTON & MENU LIST
+===================================== */
 
-
-/* ----- HAMBURGER BUTTON ----- */
+/* Bottone hamburger (visibile su schermi piccoli) */
 .hamburger-btn {
     position: fixed;
     top: 20px;
@@ -32,13 +14,18 @@
     z-index: 1100;
 }
 
+/* Lista del menu (stile flex in colonna) */
 .hamburger-menu {
     display: flex;
     flex-direction: column;
     text-align: start;
 }
 
-/* ----- OVERLAY (Sfondo scuro) ----- */
+/* =====================================
+     OVERLAY
+  ===================================== */
+
+/* Overlay scuro che copre lo schermo quando il menu è aperto */
 .overlay-hamburger {
     position: fixed;
     top: 0;
@@ -49,27 +36,32 @@
     z-index: 1000;
 }
 
-/* ----- SIDEBAR MENU ----- */
+/* =====================================
+     SIDEBAR MENU
+  ===================================== */
+
+/* Contenitore del menu laterale */
 .sidebar-menu {
     position: fixed;
     top: 0;
     right: -50%;
+    /* Inizialmente nascosto fuori schermo */
     width: 40%;
-    /* In schermi medi/grandi il menu occupa il 40% */
     height: 100%;
     background: var(--color-secondary-bg);
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
-    transition: right 0.5s ease-in-out;
-    z-index: 1100;
     padding: 20px;
     overflow-y: auto;
+    transition: right 0.5s ease-in-out;
+    z-index: 1100;
 }
 
+/* Stato aperto del menu */
 .sidebar-menu.open {
     right: 0;
 }
 
-/* ----- CLOSE BUTTON ----- */
+/* Bottone per chiudere il menu */
 .close-btn {
     position: absolute;
     top: 15px;
@@ -80,7 +72,7 @@
     cursor: pointer;
 }
 
-/* ----- MENU LIST ----- */
+/* Stile della lista interna al menu */
 .sidebar-nav {
     list-style: none;
     padding: 0;
@@ -90,11 +82,13 @@
     display: block;
 }
 
+/* Riga contenente il link e, eventualmente, il bottone per il dropdown */
 .rs-top-row {
     display: flex;
     align-items: center;
 }
 
+/* Stile dei link principali del menu */
 .sidebar-link {
     display: block;
     padding: 10px 0;
@@ -104,6 +98,7 @@
     color: #333;
 }
 
+/* Hover e stato attivo: cambio colore */
 .sidebar-link:hover,
 .sidebar-link.active,
 .rs-dropdown-item:hover,
@@ -111,33 +106,39 @@
     color: var(--color-button-hover);
 }
 
-/* ----- DROPDOWN ----- */
+/* =====================================
+     DROPDOWN MENU
+  ===================================== */
+
+/* Contenitore del dropdown (chiuso inizialmente) */
 .rs-dropdown-menu {
     display: block;
     /* Rimane nel flusso del documento */
     max-height: 0;
-    /* Inizialmente chiuso */
     overflow: hidden;
     opacity: 0;
     transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
+/* Dropdown aperto */
 .rs-dropdown-menu.show {
     max-height: 100%;
-    /* Espande fino a contenere tutto il contenuto */
     opacity: 1;
 }
 
+/* Header del dropdown (cliccabile) */
 .rs-dropdown-header {
     font-weight: bold;
     cursor: pointer;
 }
 
+/* Sezioni interne al dropdown */
 .rs-dropdown-section {
     margin-bottom: 10px;
     padding: 10px;
 }
 
+/* Lista dei sotto-item del dropdown */
 .rs-dropdown-items {
     display: flex;
     flex-direction: column;
@@ -145,6 +146,7 @@
     list-style: none;
 }
 
+/* Sotto-item del dropdown */
 .rs-dropdown-item {
     display: block;
     padding: 5px 0;
@@ -153,25 +155,39 @@
     text-decoration: none;
 }
 
+/* Bottone per attivare il dropdown (icona) */
 .rs-dropdown-button-menu {
     background-color: var(--color-secondary-bg);
-    text-decoration: none;
     border: none;
+    text-decoration: none;
     padding-left: 10px;
     font-size: 16px;
 }
 
+/* Stile per l'intestazione (h3) all'interno dell'aside */
 aside h3 {
     padding: 0 10px;
 }
 
-/* ----- RESPONSIVE ADATTAMENTI ----- */
+/* =====================================
+     RESPONSIVE ADATTAMENTI
+  ===================================== */
 
-/* Per schermi fino a 768px (tablet e smartphone in orientamento verticale) */
+/* Nasconde il menu e gli elementi correlati su schermi grandi (min-width: 870px) */
+@media (min-width: 870px) {
+
+    .hamburger-btn,
+    .hamburger-menu,
+    .overlay-hamburger,
+    .sidebar-menu {
+        display: none;
+    }
+}
+
+/* Per schermi fino a 870px (tablet e piccoli desktop) */
 @media (max-width: 870px) {
     .sidebar-menu {
         width: 50%;
-        /* Occupa il 80% della larghezza */
         right: -80%;
         padding: 15px;
     }
@@ -206,21 +222,22 @@ aside h3 {
         padding: 0 5px;
     }
 
+    /* Il bottone hamburger assume una posizione statica */
     .hamburger-btn {
         position: static;
     }
 
+    /* Regolazioni per il contenuto dell'header del menu */
     #close-menu button,
     #close-menu h3 {
         padding: 10px 0;
     }
 }
 
-/* Per schermi molto piccoli, fino a 480px */
+/* Per schermi fino a 480px (molto piccoli) */
 @media (max-width: 480px) {
     .sidebar-menu {
         width: 70%;
-        /* Occupa quasi tutta la larghezza */
         right: -90%;
         padding: 10px;
     }
@@ -253,16 +270,5 @@ aside h3 {
     aside h3 {
         font-size: 18px;
         padding: 0 5px;
-    }
-}
-
-/* Nasconde il menu laterale, il bottone hamburger e overlay per schermi grandi */
-@media (min-width: 870px) {
-
-    .hamburger-btn,
-    .hamburger-menu,
-    .overlay-hamburger,
-    .sidebar-menu {
-        display: none;
     }
 }

@@ -69,10 +69,10 @@ function AppHeader() {
                     {/* LOGO & SEARCHBAR PART */}
                     <div id="image-search">
                         <div id="image">
-                            <a href="">
+                            <a href="/">
                                 <img src="images/test_foto.svg" alt="" id="logo" />
                             </a>
-                            <SidebarMenu navLinks={navLinks } />
+                            <SidebarMenu navLinks={navLinks} />
                         </div>
                         <div className="search-bar">
                             <input type="text" name="" placeholder="Cerca nel nostro catalogo" />
@@ -81,14 +81,14 @@ function AppHeader() {
                     </div>
                     {/* /LOGO & SEARCHBAR PART */}
                     <hr className="custom-hr" />
-                    
+
                     {/* LINKS PART */}
                     <div id="container-nav">
                         <nav>
                             <ul className="nav-list">
                                 {navLinks.map((curLink, index) => {
                                     return (
-                                        <li key={index} className="nav-item rea-nav-link">
+                                        <li key={index} className="nav-item">
                                             <NavLink
                                                 className="nav-link"
                                                 aria-current="page"
@@ -101,7 +101,6 @@ function AppHeader() {
                                                 <div className="dropdown-menu" role="menu">
                                                     {curLink.dropdown.map((item, subIndex) => (
                                                         <div key={subIndex} className="dropdown-column">
-                                                            {/* Nome della collezione come header della colonna */}
                                                             <NavLink className="dropdown-header" to={item.path}>
                                                                 <h5>
                                                                     {item.title}

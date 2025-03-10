@@ -1,45 +1,11 @@
-/*---------------------------- FONT & COLOR ------------------------------*/
-/* Titoli e intestazioni → Playfair Display (Elegante, serif) 
-Testo paragrafo → Poppins o Lato (Sans-serif, leggibile e moderno) 
-Pulsanti e call-to-action → Montserrat (Sans-serif, leggermente bold per maggiore impatto)  */
-:root {
-  --font-heading: 'Playfair Display', serif;
-  --font-body: 'Poppins', sans-serif;
-  --font-button: 'Montserrat', sans-serif;
-}
-
-:root {
-  --color-background: #F8F9FA;
-  /*BIANCO SPORCO*/
-  --color-secondary-bg: #EAEDED;
-  /*GRIGIO CHIARO*/
-  --color-primary: #2C3E50;
-  /*BLU PETROLIO*/
-  --color-secondary: #A3B899;
-  /*VERDE SALVIA*/
-  --color-text: #333333;
-  /*ANTRACITE*/
-  --color-text-secondary: #666666;
-  /*GRIGIO MEDIO*/
-  --color-button: #34495E;
-  /*BLU NAVY*/
-  --color-button-hover: #C4A35A;
-  /*ORO SATINATO*/
-  --color-border: #444444;
-  /*GRIGIO SCURO*/
-}
-
 :root {
   --header-height-desktop: 200px;
   --header-height-responsive: 180px;
   --header-height-responsive-l: 165px;
 }
 
-/*---------------------------- FONT & COLOR ------------------------------*/
-
 /* ---- Header ---- */
 header {
-  box-sizing: border-box;
   background-color: var(--color-secondary-bg);
   padding: 20px 0;
   height: var(--header-height-desktop);
@@ -51,13 +17,6 @@ header {
   margin: 0 auto;
 }
 
-#logo {
-  height: 10vh;
-  max-height: 70px;
-  padding-right: 20px;
-  width: auto;
-}
-
 #image-search {
   display: flex;
   justify-content: space-between;
@@ -66,6 +25,13 @@ header {
 
 #image {
   width: 30%;
+}
+
+#logo {
+  height: 10vh;
+  max-height: 70px;
+  padding-right: 20px;
+  width: auto;
 }
 
 .search-bar {
@@ -97,7 +63,7 @@ header {
 }
 
 .custom-hr {
-  border: none;
+  margin: 1.5rem;
   height: 2px;
   background-color: #34495E;
 }
@@ -105,7 +71,6 @@ header {
 /* ---- Navbar ---- */
 nav {
   background-color: var(--color-secondary-bg);
-  padding: 10px 0;
   text-align: center;
 }
 
@@ -117,22 +82,10 @@ nav ul {
 }
 
 nav ul li {
-  display: inline-block;
   margin: 0 15px;
 }
 
-/* Posizionamento relativo per poter posizionare il dropdown assolutamente */
-nav ul li.nav-item {
-  position: relative;
-}
-
 /* NAV-DROPDOWN */
-/* Container principale della nav */
-#container-nav {
-  position: relative;
-  z-index: 1000;
-}
-
 /* Lista principale della navbar */
 .nav-list {
   list-style: none;
@@ -154,14 +107,10 @@ nav ul li.nav-item {
 
 /* Link della navbar */
 .nav-link {
-  text-decoration: none;
   color: #000;
-  padding: 10px;
+  padding: 0 10px;
   display: block;
-  position: relative;
   text-decoration: none;
-  /* Rimuove sottolineatura predefinita */
-  transition: color 0.3s ease-in-out;
 }
 
 .nav-link:hover,
@@ -173,12 +122,12 @@ nav ul li.nav-item {
 .dropdown-menu {
   position: absolute;
   top: 100%;
-  left: 50%;
-  /* Manteniamo il centraggio orizzontale, ma aggiungiamo uno spostamento verticale iniziale */
+  left: 50%; /* Manteniamo il centraggio orizzontale, ma aggiungiamo uno spostamento verticale iniziale */
   transform: translateX(-50%) translateY(0);
   display: flex;
   background: var(--color-secondary-bg);
-  border: 1px solid #ccc;
+  border: 1px solid #cccccc;
+  margin-top: 10px;
   padding: 10px;
   gap: 15px;
   visibility: hidden;
@@ -191,8 +140,7 @@ nav ul li.nav-item {
 
 .nav-item:hover .dropdown-menu {
   visibility: visible;
-  opacity: 1;
-  /* Il menu scende verticalmente, mantenendo il centraggio */
+  opacity: 1; /* Il menu scende verticalmente, mantenendo il centraggio */
   transform: translateX(-40vw, 70vw) translateY(0);
 }
 
@@ -215,7 +163,6 @@ nav ul li.nav-item {
   text-overflow: ellipsis;
 }
 
-/* Il resto del CSS rimane invariato */
 .dropdown-items {
   list-style: none;
   margin: 0;
@@ -233,11 +180,24 @@ nav ul li.nav-item {
   text-overflow: ellipsis;
 }
 
-.dropdown-item:hover, .dropdown-header:hover {
+.dropdown-item:hover,
+.dropdown-header:hover {
   color: var(--color-button-hover);
   background-color: var(--color-secondary-bg);
 }
+
 /* ---- Media Queries per la responsività ---- */
+@media (max-width: 1100px) {
+  .dropdown-menu {
+    transform: translateX(-50%) translateY(0);
+    left: 90%;
+  }
+
+  .nav-item:hover .dropdown-menu {
+    visibility: visible;
+  }
+
+}
 
 /* Tablet e dispositivi medi (fino a 768px) */
 @media (max-width: 870px) {
@@ -257,7 +217,6 @@ nav ul li.nav-item {
 
   #image {
     width: 100%;
-    text-align: center;
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
@@ -285,7 +244,6 @@ nav ul li.nav-item {
     width: 20%;
   }
 
-  /* Riduzione dimensioni del font della navbar */
   .nav-item {
     font-size: 18px;
   }
@@ -299,7 +257,6 @@ nav ul li.nav-item {
     margin: 5px 10px;
   }
 
-  /* Se il dropdown dovesse essere troppo largo, si può limitare la larghezza */
   .dropdown-menu {
     flex-direction: column;
     gap: 10px;
@@ -314,7 +271,7 @@ nav ul li.nav-item {
   #container-nav {
     display: none;
   }
-  
+
   hr {
     display: none;
   }
@@ -327,7 +284,6 @@ nav ul li.nav-item {
     height: var(--header-height-responsive-l);
   }
 
-  /* Riduci ulteriormente padding e font-size */
   .nav-item {
     font-size: 16px;
   }
@@ -337,16 +293,4 @@ nav ul li.nav-item {
     font-size: 14px;
     padding: 6px;
   }
-}
-
-@media (max-width: 1100px) {
-  .dropdown-menu {
-    transform: translateX(-50%) translateY(0);
-    left: 90%;
-  }
-  
-  .nav-item:hover .dropdown-menu {
-    visibility: visible;
-  }
-
 }
