@@ -53,7 +53,7 @@ function AppFooter() {
                                 <i className="fa-solid fa-envelope-open-text"></i> test@libero.it
                             </p>
                             <p className="">
-                                <i class="fa-solid fa-phone-volume"></i> 081 505 8963
+                                <i className="fa-solid fa-phone-volume"></i> 081 505 8963
                             </p>
                         </div>
                     </div>

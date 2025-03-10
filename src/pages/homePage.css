@@ -158,20 +158,59 @@ li {
     background-color: var(--color-secondary-bg);
     padding: 80px 0;
     display: flex;
-}
 
-#first-area,
-#second-area {
-    width: 50%;
-    padding-top: 20px;
+    align-items: stretch;
+    /* Aggiunto */
 }
 
 #first-area {
+    width: 50%;
+    padding-top: 20px;
     padding-right: 10px;
+    display: flex;
+    /* Aggiunto */
+    flex-direction: column;
+    /* Aggiunto */
+    justify-content: space-between;
+    /* Aggiunto: spinge il blocco immagine in fondo */
+}
+
+#second-area {
+    width: 50%;
+    padding-top: 20px;
+    display: flex;
+    /* Aggiunto */
+    flex-direction: column;
+    /* Aggiunto */
+    justify-content: flex-end;
+    /* Aggiunto */
+}
+
+#second-area-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+}
+
+#second-area-content p {
+    width: 70%;
+    margin-left: auto;
+    margin-top: auto;
+    /* Aggiunto: posiziona il paragrafo in fondo */
+    padding: 20px 0 0;
+    /* Eventuale aggiustamento del padding */
+}
+
+#second-area img {
+    width: 70%;
+    margin-left: auto;
+    display: block;
+    /* Rimuovi: height: 70%; */
 }
 
 #text-content {
-    width: 70%;
+    width: 80%;
     margin-left: auto;
 }
 
@@ -183,25 +222,63 @@ li {
     margin: 10px 0 80px;
 }
 
+/* Contenitore principale */
 #image-content {
+    position: relative;
+    overflow: hidden;
+    /* Nasconde l'overlay quando è fuori dalla vista */
+}
+
+/* Link che contiene le immagini: usa flex e gap come da te definito */
+#image-content a {
     max-width: 100%;
     display: flex;
     gap: 20px;
+    position: relative;
+    /* Necessario per posizionare l'overlay in modo assoluto */
 }
 
-#image-content img {
+/* Le immagini occupano metà spazio meno metà del gap */
+#image-content a img {
     width: calc(50% - 10px);
+    display: block;
+    transition: transform 0.3s ease-out;
+}
+
+/* Effetto hover: le immagini si spostano leggermente verso l'alto e si ingrandiscono */
+#image-content:hover a img {
+    transform: scale(1.05);
+}
+
+/* Overlay: nascosto sotto e animato al passaggio del mouse */
+.overlay-text {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -50px;
+    /* Inizia nascosto sotto */
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    opacity: 0;
+    transition: bottom 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+/* Al passaggio del mouse sull'intero div, l'overlay scorre verso l'alto */
+#image-content:hover .overlay-text {
+    bottom: 0;
+    opacity: 1;
 }
 
 #second-area-content {
     display: flex;
     flex-direction: column;
-    padding-right: 10px;
+    height: 100%;
 }
 
 
-#second-area img,
-#second-area p {
+#second-area img {
     width: 70%;
     height: 70%;
     margin-left: auto;
@@ -209,9 +286,169 @@ li {
 }
 
 #second-area p {
-    padding: 20px 0;
+    width: 70%;
+    margin-left: auto;
+    margin-left: auto;
+    margin-top: auto;
+    padding: 20px 0 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
 }
 
+#found-collection {
+    background-color: var(--color-secondary-bg);
+    padding: 50px 0;
+}
+
+.found-container {
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.found-container h3 {
+    text-align: center;
+    padding: 10px 0 30px;
+}
+
+/* Layout con Flexbox */
+#card-area {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+    padding-bottom: 50px;
+}
+
+/* Stile base per ogni card */
+.card {
+    position: relative;
+    border-radius: 10%;
+    border: 2px solid #ccc;
+    padding: 20px;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    width: calc((100% - 60px) / 4);
+    aspect-ratio: 1 / 1;
+    color: white;
+    transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card-overlay {
+    position: absolute;
+    border-radius: 10%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+/* Assicurare che il contenuto (testo, icone, ecc.) stia sopra l'overlay */
+.card>*:not(.card-overlay) {
+    position: relative;
+    z-index: 2;
+}
+
+/* Effetto hover sulla card */
+.card:hover {
+    transform: scale(1.05);
+    border-color: var(--color-button-hover);
+    box-shadow: 0 0 10px var(--color-button-hover);
+}
+
+/* Animazione per il testo e l'icona */
+.card h4,
+.card p,
+.card .icon {
+    transition: transform 0.5s ease-in-out, text-shadow 0.5s ease-in-out;
+}
+
+.card:hover h4,
+.card:hover p,
+.card:hover .icon {
+    transform: translateY(-5px);
+    text-shadow: 0 0 8px var(--color-button-hover);
+}
+
+/* Stile per l'icona */
+.card .card-content .icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.card-content {
+    margin: auto;
+
+}
+
+/* Responsive: 2 card in tablet (fino a 768px) */
+@media (max-width: 768px) {
+    .card {
+        margin: 10px 0;
+        width: calc((100% - 20px) / 2);
+        aspect-ratio: 1 / 1;
+    }
+}
+
+/* Responsive: 1 card in mobile (fino a 480px) */
+@media (max-width: 480px) {
+    .card {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+    }
+}
+
+
+
+
+
+/* Media query per dispositivi tra 425px e 768px (tablet) */
+@media (min-width: 425px) and (max-width: 768px) {
+
+    /* Aumenta leggermente le immagini per renderle più visibili */
+    #image-content a img {
+        width: calc(50% - 5px);
+    }
+}
+
+/* Media query per smartphone (max-width: 424px) */
+@media (max-width: 424px) {
+
+    /* Imposta la sezione in colonna */
+    #collection-section {
+        flex-direction: column;
+        padding: 40px 0;
+        /* eventuale riduzione del padding verticale */
+    }
+
+    /* Le due aree occupano tutta la larghezza */
+    #first-area,
+    #second-area {
+        width: 100%;
+        padding: 20px 0;
+    }
+
+    /* Il contenuto testuale si adatta alla larghezza */
+    #text-content,
+    #second-area-content {
+        width: 100%;
+        padding: 0 15px;
+        margin: 0 auto;
+    }
+
+    /* Centra le immagini nel contenitore
+    #image-content a {
+        justify-content: center;
+    }
+
+    Le immagini in #image-content si mantengono ben visibili 
+    #image-content a img {
+        width: calc(50% - 5px);
+    } */
+}
 
 @media (max-width: 768px) {
 
@@ -247,14 +484,75 @@ li {
 
     .bottone {
         width: 100%;
-        margin: 10px 0;
+        margin-top: 40px;
         display: block;
         box-sizing: border-box;
     }
 }
 
-@media (max-width: 425px) {
-    .visual-group {
+@media (max-width: 424px) {
+
+    /* Imposta la sezione in colonna e rimuove i padding extra */
+    #collection-section {
+        display: flex;
+        flex-direction: column;
+        padding: 40px 0;
+        /* eventuale riduzione */
+    }
+
+    /* Appiattisci i contenitori in modo che i loro figli diventino diretti */
+    #first-area,
+    #text-content {
+        display: contents;
+    }
+
+    /* Reimposta la larghezza al 100% per tutti gli elementi */
+    #collection-section>* {
+        width: 100%;
+    }
+
+    /* Riordina gli elementi: 
+       1. p.welcome
+       2. h2
+       3. #second-area
+       4. button.bottone
+       5. #image-content */
+    p.welcome {
+        order: 1;
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    /* Assicurati di essere specifico: qui si presume che l'unico h2 sia quello in text-content */
+    #collection-section h2 {
+        order: 2;
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    #second-area {
+        order: 3;
+        width: 100%;
+    }
+
+    #second-area img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    #second-area-content p {
+        width: 100%;
+    }
+
+    #text-content button {
+        order: 4;
+        width: 80%;
+        margin: 10px auto 40px;
+    }
+
+    #image-content {
+        order: 5;
         width: 100%;
     }
 }
